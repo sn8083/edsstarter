@@ -29,6 +29,26 @@ export default function (block) {
   }
   function generateRandomTaskDiv() {
     const button = document.createElement('button');
+    button.textContent = 'Get Random Task';
+    button.style.background = 'linear-gradient(to right, #ff7e5f, #feb47b)';
+    button.style.border = 'none';
+    button.style.color = 'white';
+    button.style.padding = '10px 20px';
+    button.style.textAlign = 'center';
+    button.style.textDecoration = 'none';
+    button.style.display = 'inline-block';
+    button.style.fontSize = '16px';
+    button.style.margin = '4px 2px';
+    button.style.cursor = 'pointer';
+    button.style.transition = 'background 0.3s ease';
+
+    button.onmouseover = () => {
+      button.style.background = 'linear-gradient(to right, #feb47b, #ff7e5f)';
+    };
+
+    button.onmouseout = () => {
+      button.style.background = 'linear-gradient(to right, #ff7e5f, #feb47b)';
+    };
     block.appendChild(button);
     button.onclick = () => {
       button.style.backgroundColor = generateRandomColor(); // Change the color to the random color
