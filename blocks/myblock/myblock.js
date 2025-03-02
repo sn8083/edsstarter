@@ -23,4 +23,35 @@ export default function (block) {
     timeDiv2.textContent = `Current IN time: ${timeString2}`;
   }
   setInterval(displayTime, 1000);
+
+  function generateRandomColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  }
+  function generateRandomTaskDiv() {
+    const button = document.createElement('button');
+    button.textContent = 'Generate Random Task';
+    block.appendChild(button);
+    button.onclick = () => {
+      button.style.backgroundColor = generateRandomColor(); // Change the color to the random color
+      fetch('https://bored.api.lewagon.com/api/activity/')
+        .then((response) => {
+          const res = response.json();
+          return res;
+        })
+        .then((data) => {
+          console.log(data);
+          let resultDiv = document.getElementById('result');
+          if (!resultDiv) {
+            resultDiv = document.createElement('div');
+            resultDiv.id = 'result';
+            button.after(resultDiv);
+          }
+          resultDiv.style.backgroundColor = generateRandomColor();
+          resultDiv.textContent = data.activity;
+          block.appendChild(resultDiv);
+        })
+        .catch((error) => console.error('Error fetching activity:', error));
+    };
+  }
+  generateRandomTaskDiv();
 }
