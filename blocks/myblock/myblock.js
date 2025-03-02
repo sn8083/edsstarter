@@ -8,7 +8,7 @@ export default function decorate(block) {
     if (!timeDiv1) {
       timeDiv1 = document.createElement('div');
       timeDiv1.id = 'time1';
-      document.body.appendChild(timeDiv1);
+      block.appendChild(timeDiv1);
     }
     timeDiv1.textContent = `Current AU time: ${timeString}`;
 
