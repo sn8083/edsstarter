@@ -29,6 +29,15 @@ export default function (block) {
   }
   function generateRandomTaskDiv() {
     const button = document.createElement('button');
+    button.style.backgroundColor = '#ff0000'; // AAMI red color
+    button.style.color = '#ffffff'; // White text color
+    button.style.border = 'none';
+    button.style.padding = '10px 20px';
+    button.style.fontSize = '16px';
+    button.style.cursor = 'pointer';
+    button.style.borderRadius = '5px';
+    button.style.fontWeight = 'bold';
+    button.style.textTransform = 'uppercase';
     button.textContent = 'Generate Random Task';
     block.appendChild(button);
     button.onclick = () => {
