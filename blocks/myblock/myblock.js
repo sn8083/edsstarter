@@ -48,7 +48,7 @@ export default function (block) {
           }
           resultDiv.style.backgroundColor = generateRandomColor();
           resultDiv.textContent = data.activity;
-          block.appendChild(resultDiv);
+          button.after(resultDiv);
         })
         .catch((error) => console.error('Error fetching activity:', error));
     };
